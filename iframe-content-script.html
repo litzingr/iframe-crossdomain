@@ -1,0 +1,14 @@
+<script type="text/javascript">
+	function sendHeight() {
+		if (parent.postMessage) {
+			// replace #pageDiv with elementID that will be
+			//the height you are looking for
+			var height = document.getElementById('pageDiv').offsetHeight;
+			parent.postMessage(height, '*');
+		}
+	}
+
+	//run the sendHeight every second.
+	//(in this case it doesn't need to be updated quickly, but can be).
+	setInterval(sendHeight, 1000);
+</script>

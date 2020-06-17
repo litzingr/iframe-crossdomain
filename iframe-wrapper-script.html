@@ -1,0 +1,13 @@
+<script type="text/javascript">
+    // Create event handler.
+    var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+    var eventer = window[eventMethod];
+    var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+    // Listener for a message from the iframe.
+    eventer(messageEvent, function(e) {
+        if (isNaN(e.data)) return;
+        // replace #iframeID with the id of the iframe
+        document.getElementById('iframeID').style.height = e.data + 'px';
+    }, false);
+</script>
